@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faizan Hussain - Pro Gamer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;700&display=swap');
+        
+        :root {
+            --fortnite-yellow: #F8F32B;
+            --fortnite-blue: #00A8E8;
+            --fortnite-purple: #7B2CBF;
+            --marvel-red: #ED1D24;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .hero-title {
+            font-family: 'Bangers', cursive;
+            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        
+        .marvel-bg {
+            background: linear-gradient(135deg, var(--marvel-red) 0%, #000000 100%);
+        }
+        
+        .fortnite-bg {
+            background: linear-gradient(135deg, var(--fortnite-blue) 0%, var(--fortnite-purple) 100%);
+        }
+        
+        .roblox-bg {
+            background: linear-gradient(135deg, #e84c3d 0%, #2d3e50 100%);
+        }
+        
+        .character-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .stats-bar {
+            height: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-black/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center space-x-2">
+                            <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Logo">
+                            <span class="text-xl font-bold text-white hero-title">FAIZAN</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-yellow-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all">About</a>
+                        <a href="#gallery" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all">Gallery</a>
+                        <a href="#stats" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all">Stats</a>
+                        <a href="#characters" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all">Characters</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img class="w-full h-full object-cover opacity-20" src="https://i.imgur.com/5bQZJ9T.jpg" alt="Fortnite Background">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/30"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 hero-title text-yellow-400">
+                        FAIZAN <span class="text-white">HUSSAIN</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-lg">
+                        The Ultimate <span class="text-yellow-400 font-bold">Fortnite</span> & <span class="text-red-500 font-bold">Roblox</span> Pro Player
+                    </p>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#stats" class="px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full transition-all transform hover:scale-105">
+                            MY STATS
+                        </a>
+                        <a href="#gallery" class="px-8 py-3 border-2 border-white hover:bg-white hover:text-black font-bold rounded-full transition-all transform hover:scale-105">
+                            GALLERY
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative floating pulse">
+                        <img class="h-64 md:h-96 rounded-lg border-4 border-yellow-400 shadow-2xl" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Hussain">
+                        <div class="absolute -bottom-5 -right-5 bg-yellow-500 text-black px-4 py-2 rounded-full font-bold">
+                            <i class="fas fa-trophy mr-2"></i> PRO PLAYER
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold hero-title text-yellow-400 mb-4">ABOUT <span class="text-white">FAIZAN</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img class="rounded-lg shadow-xl w-full max-w-md mx-auto" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Playing">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h3 class="text-3xl font-bold text-white mb-6">The Gaming Legend</h3>
+                    <p class="text-gray-300 mb-6">
+                        Faizan Hussain is a 10-year-old gaming prodigy who dominates both Fortnite and Roblox with his incredible skills. 
+                        With lightning-fast reflexes and strategic genius, he's climbed to the top of the leaderboards, earning respect from players worldwide.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        When he's not busy winning Victory Royales or creating amazing Roblox worlds, Faizan enjoys Marvel superheroes, 
+                        especially Spider-Man and Iron Man. His gaming setup is decked out with all his favorite characters!
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-yellow-400 text-2xl mb-2">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h4 class="font-bold text-white">Gaming Since</h4>
+                            <p class="text-gray-300">Age 5</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-yellow-400 text-2xl mb-2">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h4 class="font-bold text-white">Tournaments Won</h4>
+                            <p class="text-gray-300">27+</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-yellow-400 text-2xl mb-2">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="font-bold text-white">Followers</h4>
+                            <p class="text-gray-300">50K+</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-yellow-400 text-2xl mb-2">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="font-bold text-white">Favorite Game</h4>
+                            <p class="text-gray-300">Fortnite</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold hero-title text-yellow-400 mb-4">FAIZAN'S <span class="text-white">GALLERY</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Gaming">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Victory Royale!</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan with Controller">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Pro Controller Skills</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan with Friends">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Gaming Squad</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan's Setup">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Epic Gaming Setup</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Cosplay">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Spider-Man Cosplay</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Tournament">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Winning Tournament</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Roblox">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Roblox World Builder</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item relative rounded-lg overflow-hidden shadow-lg">
+                    <img class="w-full h-64 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Marvel">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <h3 class="text-white font-bold">Marvel Superfan</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full transition-all transform hover:scale-105">
+                    VIEW MORE PHOTOS
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 marvel-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold hero-title text-white mb-4">PRO <span class="text-yellow-400">STATS</span></h2>
+                <div class="w-20 h-1 bg-white mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <img class="h-8 mr-3" src="https://i.imgur.com/5bQZJ9T.jpg" alt="Fortnite Logo">
+                        FORTNITE STATS
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">Victory Royales</span>
+                                <span class="font-bold text-yellow-400">1,248</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">K/D Ratio</span>
+                                <span class="font-bold text-yellow-400">8.7</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">Headshot %</span>
+                                <span class="font-bold text-yellow-400">73%</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 73%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">Win Rate</span>
+                                <span class="font-bold text-yellow-400">32%</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 32%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <img class="h-8 mr-3" src="https://i.imgur.com/7B2cZqP.png" alt="Roblox Logo">
+                        ROBLOX STATS
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">Games Created</span>
+                                <span class="font-bold text-yellow-400">18</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">Total Visits</span>
+                                <span class="font-bold text-yellow-400">2.4M</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">Favorites</span>
+                                <span class="font-bold text-yellow-400">56K</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-white">Badges Earned</span>
+                                <span class="font-bold text-yellow-400">247</span>
+                            </div>
+                            <div class="stats-bar bg-gray-800 rounded-full h-4">
+                                <div class="bg-yellow-500 h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 bg-black/50 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold text-white mb-6 text-center">ACHIEVEMENTS & AWARDS</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-yellow-500/10 border border-yellow-500/30 p-4 rounded-lg text-center">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="font-bold text-white">Fortnite Champion</h4>
+                        <p class="text-gray-300 text-sm">Season 5, 7, 9</p>
+                    </div>
+                    <div class="bg-yellow-500/10 border border-yellow-500/30 p-4 rounded-lg text-center">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h4 class="font-bold text-white">Roblox Star</h4>
+                        <p class="text-gray-300 text-sm">Featured Creator</p>
+                    </div>
+                    <div class="bg-yellow-500/10 border border-yellow-500/30 p-4 rounded-lg text-center">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h4 class="font-bold text-white">Esports Winner</h4>
+                        <p class="text-gray-300 text-sm">2022 Championship</p>
+                    </div>
+                    <div class="bg-yellow-500/10 border border-yellow-500/30 p-4 rounded-lg text-center">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="font-bold text-white">Content Creator</h4>
+                        <p class="text-gray-300 text-sm">50K Followers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold hero-title text-yellow-400 mb-4">FAVORITE <span class="text-white">CHARACTERS</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-white mb-8 flex items-center justify-center">
+                    <img class="h-8 mr-3" src="https://i.imgur.com/5bQZJ9T.jpg" alt="Fortnite Logo">
+                    FORTNITE CHARACTERS
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <!-- Fortnite Character 1 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Fortnite Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Faizan Skin</h4>
+                            <p class="text-gray-300 text-sm">Exclusive Pro Skin</p>
+                        </div>
+                    </div>
+                    <!-- Fortnite Character 2 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Fortnite Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Spider-Man</h4>
+                            <p class="text-gray-300 text-sm">Marvel Series</p>
+                        </div>
+                    </div>
+                    <!-- Fortnite Character 3 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Fortnite Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Iron Man</h4>
+                            <p class="text-gray-300 text-sm">Marvel Series</p>
+                        </div>
+                    </div>
+                    <!-- Fortnite Character 4 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Fortnite Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Black Panther</h4>
+                            <p class="text-gray-300 text-sm">Marvel Series</p>
+                        </div>
+                    </div>
+                    <!-- Fortnite Character 5 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Fortnite Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Thor</h4>
+                            <p class="text-gray-300 text-sm">Marvel Series</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-white mb-8 flex items-center justify-center">
+                    <img class="h-8 mr-3" src="https://i.imgur.com/7B2cZqP.png" alt="Roblox Logo">
+                    ROBLOX CHARACTERS
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <!-- Roblox Character 1 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Roblox Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Faizan Avatar</h4>
+                            <p class="text-gray-300 text-sm">Legendary Outfit</p>
+                        </div>
+                    </div>
+                    <!-- Roblox Character 2 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Roblox Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Superhero</h4>
+                            <p class="text-gray-300 text-sm">Marvel Inspired</p>
+                        </div>
+                    </div>
+                    <!-- Roblox Character 3 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Roblox Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Adventurer</h4>
+                            <p class="text-gray-300 text-sm">Explorer Set</p>
+                        </div>
+                    </div>
+                    <!-- Roblox Character 4 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Roblox Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Ninja</h4>
+                            <p class="text-gray-300 text-sm">Stealth Mode</p>
+                        </div>
+                    </div>
+                    <!-- Roblox Character 5 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Roblox Character">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Wizard</h4>
+                            <p class="text-gray-300 text-sm">Magic Powers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-8 flex items-center justify-center">
+                    <img class="h-8 mr-3" src="https://i.imgur.com/3Q1KjWx.png" alt="Marvel Logo">
+                    MARVEL SUPERHEROES
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <!-- Marvel Character 1 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Spider-Man">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Spider-Man</h4>
+                            <p class="text-gray-300 text-sm">Friendly Neighborhood</p>
+                        </div>
+                    </div>
+                    <!-- Marvel Character 2 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Iron Man">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Iron Man</h4>
+                            <p class="text-gray-300 text-sm">Genius Billionaire</p>
+                        </div>
+                    </div>
+                    <!-- Marvel Character 3 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Black Panther">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Black Panther</h4>
+                            <p class="text-gray-300 text-sm">King of Wakanda</p>
+                        </div>
+                    </div>
+                    <!-- Marvel Character 4 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Thor">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Thor</h4>
+                            <p class="text-gray-300 text-sm">God of Thunder</p>
+                        </div>
+                    </div>
+                    <!-- Marvel Character 5 -->
+                    <div class="character-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-48 object-cover" src="https://i.imgur.com/JqYeYnN.png" alt="Hulk">
+                        <div class="p-4">
+                            <h4 class="font-bold text-white">Hulk</h4>
+                            <p class="text-gray-300 text-sm">Strongest Avenger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold hero-title text-yellow-400 mb-4">FAIZAN'S <span class="text-white">GAMING SETUP</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img class="rounded-lg shadow-xl w-full" src="https://i.imgur.com/JqYeYnN.png" alt="Gaming Setup">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h3 class="text-3xl font-bold text-white mb-6">Pro Gaming Gear</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-yellow-400 text-2xl mr-4">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Gaming PC</h4>
+                                <p class="text-gray-300">Custom-built with RTX 4090, Intel i9, 32GB RAM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-400 text-2xl mr-4">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Controllers</h4>
+                                <p class="text-gray-300">Elite Series 2, DualSense Edge, Scuf</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-400 text-2xl mr-4">
+                                <i class="fas fa-headphones"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Headset</h4>
+                                <p class="text-gray-300">SteelSeries Arctis Pro with GameDAC</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-400 text-2xl mr-4">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Keyboard & Mouse</h4>
+                                <p class="text-gray-300">Razer Huntsman V2 & Viper V2 Pro</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-400 text-2xl mr-4">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Monitor</h4>
+                                <p class="text-gray-300">Alienware AW3423DW 34" QD-OLED</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 fortnite-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold hero-title text-white mb-4">PLAY <span class="text-yellow-400">WITH FAIZAN</span></h2>
+                <div class="w-20 h-1 bg-white mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto bg-black/50 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold text-white mb-6 text-center">ADD ME IN GAME</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gray-900/50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <img class="h-10 mr-3" src="https://i.imgur.com/5bQZJ9T.jpg" alt="Fortnite Logo">
+                            <h4 class="text-xl font-bold text-white">FORTNITE ID</h4>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <p class="text-yellow-400 font-mono text-lg text-center glow">FaizanPro#1</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <img class="h-10 mr-3" src="https://i.imgur.com/7B2cZqP.png" alt="Roblox Logo">
+                            <h4 class="text-xl font-bold text-white">ROBLOX USERNAME</h4>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <p class="text-yellow-400 font-mono text-lg text-center glow">FaizanThePro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-xl font-bold text-white mb-4">FOLLOW ON SOCIAL MEDIA</h4>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-blue-400 hover:bg-blue-500 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-red-600 hover:bg-red-700 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition-all">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition-all">
+                            <i class="fab fa-twitch"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <img class="h-10 w-10 rounded-full mr-3" src="https://i.imgur.com/JqYeYnN.png" alt="Faizan Logo">
+                    <span class="text-xl font-bold text-white hero-title">FAIZAN HUSSAIN</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-white">About</a>
+                    <a href="#gallery" class="text-gray-400 hover:text-white">Gallery</a>
+                    <a href="#stats" class="text-gray-400 hover:text-white">Stats</a>
+                    <a href="#characters" class="text-gray-400 hover:text-white">Characters</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>© 2023 Faizan Hussain - The Ultimate Pro Gamer. All rights reserved.</p>
+                <p class="mt-2">Fortnite and Roblox are registered trademarks of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.character-card, .gallery-item, .stats-bar').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
